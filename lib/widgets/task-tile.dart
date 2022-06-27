@@ -25,7 +25,10 @@ class TaskTile extends StatelessWidget {
       builder: (context, state) {
         var cubit = AppCubit.get(context);
         return ListTile(
-          title:  Text(taskTitle),
+          title:  Text(taskTitle,
+          style: TextStyle(
+            decoration: isCheck? TextDecoration.lineThrough : null,
+          ),),
           trailing: Checkbox(
             activeColor: Colors.teal[400],
             value: isCheck,

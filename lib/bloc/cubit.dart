@@ -1,5 +1,6 @@
  import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:today_app_bloc/bloc/states.dart';
+import 'package:today_app_bloc/model/task_model.dart';
 
 class AppCubit extends Cubit<AppStates>
 {
@@ -9,26 +10,26 @@ class AppCubit extends Cubit<AppStates>
 
   bool isChecked = false;
   int index = 0;
-  List tasks = [
-    "go to school",
-    "go to gym",
+  List<TaskModel> tasks = [
+    TaskModel(name:"gym",),
+    TaskModel(name:"home",),
 
   ];
 
-  void isDone(task)
+  void isDone(TaskModel task)
   {
-    isChecked =! isChecked;
+    task.doneChange();
     emit(IsCheckedState());
   }
   void addTask(String newTask)
   {
-    tasks.add(newTask);
+    tasks.add(TaskModel(name: newTask));
     emit(AppSuccessAddState());
   }
 
-  void deleteTask(String newTask)
+  void deleteTask(TaskModel taskModel)
   {
-    tasks.remove(newTask);
+    tasks.remove(taskModel);
     emit(RemoveTaskState());
   }
 }

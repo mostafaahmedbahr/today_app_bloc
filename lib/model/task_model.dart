@@ -2,7 +2,7 @@ class TaskModel {
   final String? name;
     bool isDone;
 
-  TaskModel({required this.name, required this.isDone});
+  TaskModel({required this.name,   this.isDone=false});
 
   void doneChange() {
     isDone = !isDone;

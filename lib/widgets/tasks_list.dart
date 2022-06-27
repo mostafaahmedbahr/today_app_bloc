@@ -17,11 +17,11 @@ class TasksList extends StatelessWidget {
             itemBuilder: (context,index)
             {
               return TaskTile(
-                taskTitle:cubit.tasks[index],
+                taskTitle:cubit.tasks[index].name.toString(),
                 checkBoxChange: (newValue) {
                    cubit.isDone(cubit.tasks[index]);
                 },
-                isCheck: cubit.isChecked,
+                isCheck: cubit.tasks[index].isDone,
                 deleteTask: () {
                   cubit.deleteTask(cubit.tasks[index]);
                 } ,
